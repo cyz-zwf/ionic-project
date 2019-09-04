@@ -14,15 +14,17 @@
       <img [src]="'http://www.codeboy.com/'+item.img" alt="">
     </ion-slide>
   </ion-slides>
+  <!-- 小图标 -->
+  
   <!-- 1F商品 -->
   <ion-item>
     <img src="../../assets/icon/diannao.png" alt="" width="30rpx;">
     <h5> &nbsp; 推荐商品 1F</h5>
   </ion-item>
   <ion-grid >
-    <ion-row>
-      <ion-col size=6 *ngFor="let item of recommendedItems" no-padding>
-        <ion-card>
+    <ion-row >
+      <ion-col size=6 *ngFor="let item of recommendedItems" no-padding >
+        <ion-card no-margin>
           <div class="myimg">
               <img [src]="'http://www.codeboy.com/'+item.pic" alt="" class="img">
           </div>
