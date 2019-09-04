@@ -1,0 +1,22 @@
+.mytitle{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:  0  0.2rem;
+}
+.price{
+    color:rgb(218, 14, 14);
+    font-size:.3rem;
+    padding:  0 1.2rem;
+}
+.myimg{
+
+    height:7rem;
+}
+.img{
+    height:100%
+}
+ion-card-content.padding{
+    padding:.2rem 0.4rem;
+    text-align:center;
+}

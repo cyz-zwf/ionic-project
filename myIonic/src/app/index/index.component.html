@@ -11,24 +11,34 @@
   <!-- 轮播广告 -->
   <ion-slides pager="true" [options]="slideOptions">
     <ion-slide *ngFor="let item of carouselItems">
-       <img [src]="'http://www.codeboy.com/'+item.img" alt="">
+      <img [src]="'http://www.codeboy.com/'+item.img" alt="">
     </ion-slide>
   </ion-slides>
   <!-- 1F商品 -->
   <ion-item>
-      <img src="../../assets/icon/diannao.png" alt="" width="30rpx;">
-      <h5> &nbsp; 推荐商品 1F</h5>
+    <img src="../../assets/icon/diannao.png" alt="" width="30rpx;">
+    <h5> &nbsp; 推荐商品 1F</h5>
   </ion-item>
-  <ion-graid>
+  <ion-grid >
     <ion-row>
-      <ion-col size=6>
+      <ion-col size=6 *ngFor="let item of recommendedItems" no-padding>
         <ion-card>
-          <img src="" alt="">
-          
+          <div class="myimg">
+              <img [src]="'http://www.codeboy.com/'+item.pic" alt="" class="img">
+          </div>
+          <ion-card-header no-padding> 
+            <ion-card-title>
+              <h6 class="mytitle">{{item.title}}</h6>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content  class="padding" >
+            <p >价格:<span class="price"> {{item.price | currency:'¥'}}</span></p>
+            <ion-button color="danger" size="small" shape="round" >查看详情</ion-button>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-graid>
+  </ion-grid>
   <!-- 2F -->
   <!-- 3F -->
 
