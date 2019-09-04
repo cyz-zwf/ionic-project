@@ -1,0 +1,36 @@
+<!-- 首页 -->
+<!-- 页头  logo + searchbar-->
+<ion-header>
+  <ion-toolbar>
+    <img src="../../assets/icon/pig.png" slot="start" alt="">
+    <ion-searchbar slot="start"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 主体  slides+grid +card-->
+<ion-content>
+  <!-- 轮播广告 -->
+  <ion-slides pager="true" [options]="slideOptions">
+    <ion-slide *ngFor="let item of carouselItems">
+       <img [src]="'http://www.codeboy.com/'+item.img" alt="">
+    </ion-slide>
+  </ion-slides>
+  <!-- 1F商品 -->
+  <ion-item>
+      <img src="../../assets/icon/diannao.png" alt="" width="30rpx;">
+      <h5> &nbsp; 推荐商品 1F</h5>
+  </ion-item>
+  <ion-graid>
+    <ion-row>
+      <ion-col size=6>
+        <ion-card>
+          <img src="" alt="">
+          
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-graid>
+  <!-- 2F -->
+  <!-- 3F -->
+
+
+</ion-content>
