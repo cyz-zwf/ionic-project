@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { TouchSequence } from 'selenium-webdriver';
 import { IonSlides } from '@ionic/angular';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-index',
@@ -21,13 +22,25 @@ export class IndexComponent implements OnInit {
 
   //在组件脚本中引用组件模板中的视图子组件
   @ViewChild(IonSlides, { static: true })  //'ion-slides'
- // @ViewChild('ion-slides', { static: true }) 
+  // @ViewChild('ion-slides', { static: true }) 
   private mySlides: IonSlides;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private api: ApiService) { }
 
   ngOnInit() {
-    //首页组件初始化时,异步请求服务器端的首页数据
+    this.http.get(this.api.indexApi+'?').subscribe((res:any) => {
+      console.log(res)
+      this.carouselItems = res.carouselItems;
+      this.newArrialItems = res.newArrialItems;
+      this.topSaletems = res.topSaletems;
+      this.recommendedItems = res.recommendedItems;
+      //开始轮播广告的自动播放
+      //console.log(this.mySlides)
+      this.mySlides.startAutoplay();
+    })
+
+
+    /*//首页组件初始化时,异步请求服务器端的首页数据
     let url = 'http://www.codeboy.com/data/product/index.php';
     this.http.get(url).subscribe((res: any) => {
       console.log(res)
@@ -38,7 +51,8 @@ export class IndexComponent implements OnInit {
       //开始轮播广告的自动播放
       //console.log(this.mySlides)
       this.mySlides.startAutoplay();
-    })
+    })*/
+
   }
 
 }

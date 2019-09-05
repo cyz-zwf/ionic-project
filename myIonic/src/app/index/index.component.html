@@ -11,7 +11,7 @@
   <!-- 轮播广告 -->
   <ion-slides pager="true" [options]="slideOptions">
     <ion-slide *ngFor="let item of carouselItems">
-      <img [src]="'http://www.codeboy.com/'+item.img" alt="">
+      <img [src]="api.server+item.img" alt="">
     </ion-slide>
   </ion-slides>
   <!-- 小图标 -->
@@ -26,7 +26,7 @@
       <ion-col size=6 *ngFor="let item of recommendedItems" no-padding >
         <ion-card no-margin>
           <div class="myimg">
-              <img [src]="'http://www.codeboy.com/'+item.pic" alt="" class="img">
+              <img [src]="api.server+item.pic" alt="" class="img">
           </div>
           <ion-card-header no-padding> 
             <ion-card-title>
@@ -35,7 +35,7 @@
           </ion-card-header>
           <ion-card-content  class="padding" >
             <p >价格:<span class="price"> {{item.price | currency:'¥'}}</span></p>
-            <ion-button color="danger" size="small" shape="round" >查看详情</ion-button>
+            <ion-button color="danger" size="small" shape="round"  [routerLink]="'/product-detail/'+item.pid" >查看详情</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>

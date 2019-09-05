@@ -1,3 +1,23 @@
-<p>
-  cart works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>购物车</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img [src]="api.server+'img/index/study_computer_img2.png'" alt="">
+      </ion-thumbnail>
+      <ion-label>
+        <h3 class="mytitle">小米Air 金属超轻薄</h3>
+        <ion-text color="danger" class="price"> 价格:3488.00</ion-text>
+      </ion-label>
+      <div class="btn" slot="end">
+        <ion-button color="danger" >-</ion-button>
+        <ion-input placeholder="1" no-padding></ion-input>
+        <ion-button color="danger">+</ion-button>
+      </div>
+    </ion-item>
+  </ion-card>
+</ion-content>

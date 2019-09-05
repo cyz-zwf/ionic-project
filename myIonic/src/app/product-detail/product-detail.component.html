@@ -37,7 +37,7 @@
     <ion-card-content>
       <ion-item>
         <ion-label color="danger"> 价格:{{product.price | currency :'¥'}}</ion-label>
-        <ion-button color="danger" slot="end">加入购物车</ion-button>
+        <ion-button color="danger" slot="end"  (click)="doclick()">加入购物车</ion-button>
       </ion-item>
       <ion-item>
           <ion-label>
