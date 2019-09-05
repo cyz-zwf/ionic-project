@@ -13,21 +13,21 @@
 <ion-content>
   <!-- 商品列表  列表项组成的卡片 -->
   <!-- <ion-card> -->
-    <ion-item detail *ngFor="let item of productList">
-      <ion-thumbnail slot="start">
-        <img [src]="'http://www.codeboy.com/'+item.pic" alt="">
-      </ion-thumbnail>
-      <ion-label>
-        <h3 class="mytitle">{{item.title}}</h3>
-        <ion-text color="danger" class="price"> 价格:{{item.price | currency :'¥'}}</ion-text>
-      </ion-label>
-      <ion-button [routerLink]="'/product-detail/'+item.lid" slot="end" color="danger">详情</ion-button>
-    </ion-item>
+  <ion-item detail *ngFor="let item of productList">
+    <ion-thumbnail slot="start">
+      <img [src]="'http://www.codeboy.com/'+item.pic" alt="">
+    </ion-thumbnail>
+    <ion-label>
+      <h3 class="mytitle">{{item.title}}</h3>
+      <ion-text color="danger" class="price"> 价格:{{item.price | currency :'¥'}}</ion-text>
+    </ion-label>
+    <ion-button [routerLink]="'/product-detail/'+item.lid" slot="end" color="danger">详情</ion-button>
+  </ion-item>
   <!-- </ion-card> -->
   <!-- 没有更多商品 -->
-  <ion-text *ngIf="!hasMore" disabled="true" color="medium" center> 我是有底线的</ion-text>
+  <ion-text *ngIf="!hasMore" disabled="true" color="medium" class="center"> 我是有底线的</ion-text>
   <!-- 无限滚动:加载更多商品 -->
-  <ion-infinite-scroll  threshold="50px" (ionInfinite)="loadMore()">
+  <ion-infinite-scroll threshold="50px" (ionInfinite)="loadMore()" *ngIf="hasMore">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>

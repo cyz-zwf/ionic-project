@@ -1,3 +1,75 @@
-<p>
-  product-detail works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" slot="start">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>商品详情</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink='/cart' slot="end">
+        <ion-icon name="cart" slot="end"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- 商品型号 -->
+  <ion-item>
+    <ion-label>商品型号:{{product.lname}}</ion-label>
+  </ion-item>
+  <!-- 轮播图片 -->
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let item of product.picList">
+      <!-- <img [src]="'http://www.codeboy.com/'+item.md" alt=""> -->
+      <img [src]="item.md | serverUrl" alt="">
+      <!--使用管道-->
+    </ion-slide>
+  </ion-slides>
+  <!-- 商品详情 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="title">{{product.title}}</ion-card-title>
+      <ion-card-subtitle>{{product.subtitle}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="danger"> 价格:{{product.price | currency :'¥'}}</ion-label>
+        <ion-button color="danger" slot="end">加入购物车</ion-button>
+      </ion-item>
+      <ion-item>
+          <ion-label>
+            上市时间 : {{product.shelf_time | date : 'yyyy-MM'}}
+          </ion-label>
+        </ion-item>
+      <ion-item>
+        <ion-label>
+          CPU:{{product.cpu}}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          硬盘:{{product.disk}}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          显卡:{{product.video_card}}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          内存:{{product.memory}}
+        </ion-label>
+      </ion-item>
+      <!-- <div >
+        {{product.details}}
+      </div> -->
+      <!-- Angular 中[] 属性绑定可以绑定:html元素属性,JS DOM 对象属性-->
+      <div [innerHTML]="product.details | serverUrl:'replace' " ></div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

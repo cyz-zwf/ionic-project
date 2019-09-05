@@ -5,12 +5,14 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   {path:'index', component:IndexComponent},
   {path:'product-list',component:ProductListComponent},
   {path:'cart',component:CartComponent},
   {path:'login',component:LoginComponent},
+  {path:'product-detail/:pid', component:ProductDetailComponent},
   {path:'**',component:NotFoundComponent}
 ];
 

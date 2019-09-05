@@ -13,8 +13,9 @@ export class ProductListComponent implements OnInit {
   private hasMore = true; //还有更多吗?
 
   //获取模板中无限滚动组件的引用
-  @ViewChild(IonInfiniteScroll, { static: true })
+  @ViewChild(IonInfiniteScroll, { static: false })
   private myScroll: IonInfiniteScroll;
+
 
   constructor(
     private nav: NavController,
